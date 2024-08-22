@@ -12095,7 +12095,7 @@ a.sidebar-link {
   position: relative;
   text-decoration: none;
   transition: background 0.1s ease-in-out;
-  font-size: 25px;
+  font-size: 20px;
 }
 .sidebar-link i,
 .sidebar-link svg,
@@ -13350,3 +13350,108 @@ span.flatpickr-weekday {
   width: 260px;
 }
 /*# sourceMappingURL=app.css.map*/
+.title-page{
+  color: #4D869C;
+  font-weight: 700;
+  margin-bottom: 20px;
+    font-family: "Oswald", sans-serif;
+    text-align: center;
+}
+/* === buttonpma button style ===*/
+.buttonpma {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  animation: r1 3s ease-in-out infinite;
+ /*linear*/
+  border: 7px #4D869C solid;
+  border-radius: 14px;
+}
+ /* Responsive Design */
+ @media (max-width: 1200px) {
+            .card {
+                width: 100%;
+                max-width: 300px; /* Slightly larger cards on medium screens */
+            }
+        }
+
+        @media (max-width: 992px) {
+            .card {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+                max-width: 200px;
+                height: auto; /* Adjust height for smaller screens */
+                margin: 10px;
+            }
+
+            .card h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card {
+                width: 100%;
+                max-width: 100%;
+                height: auto; /* Adjust height for very small screens */
+                margin: 5px;
+            }
+
+            .card h2 {
+                font-size: 1.2em;
+            }
+        }
+/* button styling */
+.buttonpma {
+  --border-right: 6px;
+  --text-stroke-color: #4D869C;
+  --animation-color: #4D869C;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 1.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+  animation: r2 2s ease-in-out infinite;
+}
+/* hover */
+.buttonpma:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 70px var(--animation-color))
+}
+
+@keyframes r1 {
+  50% {
+    /* transform: rotate(-2deg) ; */
+  }
+}
+
+@keyframes r2 {
+  50% {
+    transform: rotateX(-65deg);
+  }
+}
