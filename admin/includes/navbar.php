@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand navbar-light navbar-bg">
-    <a class="sidebar-toggle js-sidebar-toggle">
+    <a class="sidebar-toggle js-sidebar-toggle"style="color:#4D869C !important;">
         <i class="hamburger align-self-center"></i>
     </a>
 
@@ -185,12 +185,12 @@
                 <a
                     class="nav-link dropdown-toggle d-none d-sm-inline-block"
                     href="#"
-                    data-bs-toggle="dropdown">
+                    data-bs-toggle="dropdown"style="color:#4D869C;font-family:Oswald, sans-serif;">
                     <img
-                        src="img/avatars/avatar.jpg"
-                        class="avatar img-fluid rounded me-1"
-                        alt="Charles Hall" />
-                    <span class="text-dark">Charles Hall</span>
+                      src="./images/team-4.jpg"
+                        class="avatar img-fluid rounded-pill me-1"
+                        alt="" />
+                    <span style="color:#4D869C;font-family:Oswald, sans-serif;">Charles Hall</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i>

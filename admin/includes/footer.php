@@ -50,7 +50,7 @@
 </div>
 
 
-<?php include("includes/scripts") ?>
+<?php include("includes/scripts.php") ?>
 
 <script src="js/app.js"></script>
 
