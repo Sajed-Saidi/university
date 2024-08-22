@@ -2,10 +2,10 @@
 
 class DAL
 {
-    public $servername = "localhost";
-    public $username = "root";
-    public $password = "";
-    public $dbname = "ecommerce lvl 3";
+    public $servername = "fdb1028.awardspace.net";
+    public $username = "4519072_university";
+    public $password = "sajed10.s";
+    public $dbname = "4519072_university";
 
     public function getdata($sql)
     {
