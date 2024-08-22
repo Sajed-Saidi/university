@@ -49,6 +49,9 @@
 </div>
 </div>
 
+
+<?php include("includes/scripts") ?>
+
 <script src="js/app.js"></script>
 
 </body>
