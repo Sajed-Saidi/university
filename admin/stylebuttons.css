@@ -1,0 +1,221 @@
+/* From Uiverse.io by aaronross1 */ 
+.edit-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4D869C;
+    border: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none !important;
+    font-family: "Oswald", sans-serif;
+  }
+  
+  .edit-svgIcon {
+    width: 17px;
+    transition-duration: 0.3s;
+  }
+  
+  .edit-svgIcon path {
+    fill: white;
+  }
+  
+  .edit-button:hover {
+    width: 120px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: #7AB2B2;
+    align-items: center;
+  }
+  
+  .edit-button:hover .edit-svgIcon {
+    width: 20px;
+    transition-duration: 0.3s;
+    transform: translateY(60%);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  
+  .edit-button::before {
+    display: none;
+    content: "Edit";
+    color: white;
+    transition-duration: 0.3s;
+    font-size: 2px;
+  }
+  
+  .edit-button:hover::before {
+    display: block;
+    padding-right: 10px;
+    font-size: 19px;
+    opacity: 1;
+    transform: translateY(0px);
+    transition-duration: 0.3s;
+  }
+  .add-btn {
+    position: relative;
+    width: 160px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #4D869C;
+    background-color: #4D869C;
+  }
+  
+  .add-btn, .add-btn__icon, .add-btn__text {
+    transition: all 0.3s;
+  }
+  
+  .add-btn .add-btn__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 400;
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  
+  .add-btn .add-btn__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: #4D869C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-btn .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+  
+  .add-btn:hover {
+    background: #4D869C;
+  }
+  
+  .add-btn:hover .add-btn__text {
+    color: transparent;
+  }
+  
+  .add-btn:hover .add-btn__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .add-btn:active .add-btn__icon {
+    background-color: #2e8644;
+  }
+  
+  .add-btn:active {
+    border: 1px solid #2e8644;
+  }
+  /* Modal Background */
+.modal-content {
+  border-radius: 15px; /* Rounded corners for the modal */
+  background-color: #EEF7FF; /* Light blue background for the modal */
+  color: #4D869C; /* Text color for the modal */
+  font-family: "oswald";
+}
+
+/* Modal Header */
+.modal-header {
+  border-bottom: 1px solid #CDE8E5; /* Light border for the header */
+  background-color: #7AB2B2; /* Header background color */
+  color: #FFFFFF; /* Text color for the header */
+  border-top-left-radius: 15px; /* Rounded top-left corner */
+  border-top-right-radius: 15px; /* Rounded top-right corner */
+}
+
+/* Close Button */
+.btn-close {
+  filter: invert(100%); /* Makes the close button white for contrast */
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 20px; /* Add some padding inside the modal body */
+}
+.modal-title{
+  color: #EEF7FF; /* Text color for modal title */
+  font-size: 30px !important;
+padding-left: 140px;
+}
+/* Input Groups */
+.input-group-text {
+  background-color: #7AB2B2; /* Background color for input group text */
+  color: #FFFFFF; /* Text color for input group text */
+  border: none; /* Remove default border */
+}
+
+.form-control {
+  border-radius: 8px; /* Rounded corners for input fields */
+  border: 1px solid #CDE8E5; /* Light border for input fields */
+  background-color: #FFFFFF; /* White background for input fields */
+}
+
+/* Textareas */
+textarea.form-control {
+  border-radius: 8px; /* Rounded corners for textareas */
+}
+
+/* Image Container */
+.bg-dark {
+  border-radius: 10px; /* Rounded corners for the image container */
+  border: 1px solid #CDE8E5; /* Light border for the image container */
+  background-color: #FFFFFF; /* White background for the image container */
+}
+
+/* Modal Footer */
+.modal-footer {
+  border-top: 1px solid #CDE8E5; /* Light border for the footer */
+  background-color: #EEF7FF; /* Light blue background for the footer */
+  border-bottom-left-radius: 15px; /* Rounded bottom-left corner */
+  border-bottom-right-radius: 15px; /* Rounded bottom-right corner */
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #4D869C; /* Primary button background color */
+  border-color: #4D869C; /* Primary button border color */
+}
+
+.btn-primary:hover {
+  background-color: #3b6f87; /* Darker shade for hover effect */
+  border-color: #3b6f87; /* Darker shade for hover effect */
+}
+
+.btn-secondary {
+  background-color: #7AB2B2; /* Secondary button background color */
+  border-color: #7AB2B2; /* Secondary button border color */
+}
+
+.btn-secondary:hover {
+  background-color: #649f9f; /* Darker shade for hover effect */
+  border-color: #649f9f; /* Darker shade for hover effect */
+}
+/* Apply Oswald font to SweetAlert elements */
+.swal-title,
+.swal-content {
+    font-family: 'Oswald', sans-serif;
+}
+
+.swal-title {
+    font-weight: 700; /* Bold title */
+}
+
+.swal-content {
+    font-weight: 400; /* Normal content text */
+}
