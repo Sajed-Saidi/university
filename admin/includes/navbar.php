@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand navbar-light navbar-bg">
-    <a class="sidebar-toggle js-sidebar-toggle"style="color:#4D869C !important;">
+    <a class="sidebar-toggle js-sidebar-toggle" style="color:#4D869C !important;">
         <i class="hamburger align-self-center"></i>
     </a>
 
@@ -185,9 +185,9 @@
                 <a
                     class="nav-link dropdown-toggle d-none d-sm-inline-block"
                     href="#"
-                    data-bs-toggle="dropdown"style="color:#4D869C;font-family:Oswald, sans-serif;">
+                    data-bs-toggle="dropdown" style="color:#4D869C;font-family:Oswald, sans-serif;">
                     <img
-                      src="./images/team-4.jpg"
+                        src="../assets/images/team-4.jpg"
                         class="avatar img-fluid rounded-pill me-1"
                         alt="" />
                     <span style="color:#4D869C;font-family:Oswald, sans-serif;">Charles Hall</span>
