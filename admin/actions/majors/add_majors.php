@@ -11,15 +11,17 @@ if ($_POST) {
     $credit_price = $_POST['credit_price'];
     $total_credits = $_POST['total_credits'];
     $duration_in_years = $_POST['duration_in_years'];
+    $type = $_POST['type'];
+    $departments_id = $_POST['departments_id'];
 
     $exists = $Majors->majorExist($majors_name, $code);
     if ($exists) {
         $response = array(
             'status' => 'error',
-            'message' => 'Major ' . $majors_name . ' Already Exists!'
+            'message' => 'Major or Code Already Exists!'
         );
     } else {
-        $result = $Majors->insertMajor($majors_name, $code, $description, $credit_price, $total_credits, $duration_in_years);
+        $result = $Majors->insertMajor($majors_name, $code, $description, $credit_price, $total_credits, $duration_in_years, $type, $departments_id);
 
         if ($result) {
             $response = array(

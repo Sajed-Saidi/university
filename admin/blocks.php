@@ -1,14 +1,18 @@
 <?php
+require("../classes/Campuses.class.php");
 require("../classes/Blocks.class.php");
 require("../classes/Departments.class.php");
 
 $Blocks = new Blocks();
 $allBlocks = $Blocks->getAllBlocks();
 
+$Campuses = new Campuses();
+$allCampuses = $Campuses->getAllCampuses();
+
 $Departments = new Departments();
 $allDepartments = $Departments->getAllDepartments();
 
-// var_dump($allDepartments);
+// var_dump($allCampuses);
 // exit;
 
 include("includes/header.php"); ?>
@@ -36,7 +40,22 @@ include("includes/header.php"); ?>
                             foreach ($allDepartments as $department) {
                             ?>
                                 <option value="<?php echo $department['departments_id'] ?>">
-                                    <?php echo $department['departments_name'] . " - " . $department['campuses_name'] ?>
+                                    <?php echo $department['departments_name'] ?>
+                                </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <!-- Campus ID -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="campuses_id">Campus</label>
+                        <select class="form-select" name="campuses_id" id="campuses_id">
+                            <?php
+                            foreach ($allCampuses as $campus) {
+                            ?>
+                                <option value="<?php echo $campus['campuses_id'] ?>">
+                                    <?php echo $campus['name'] ?>
                                 </option>
                             <?php
                             }
@@ -77,7 +96,22 @@ include("includes/header.php"); ?>
                             foreach ($allDepartments as $department) {
                             ?>
                                 <option value="<?php echo $department['departments_id'] ?>">
-                                    <?php echo $department['departments_name'] . " - " . $department['campuses_name'] ?>
+                                    <?php echo $department['departments_name'] ?>
+                                </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <!-- Campus ID -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="update_campuses_id">Campus</label>
+                        <select class="form-select" name="campuses_id" id="update_campuses_id">
+                            <?php
+                            foreach ($allCampuses as $campus) {
+                            ?>
+                                <option value="<?php echo $campus['campuses_id'] ?>">
+                                    <?php echo $campus['name'] ?>
                                 </option>
                             <?php
                             }
@@ -112,7 +146,7 @@ include("includes/header.php"); ?>
                         <div align="right">
                             <button type="button" class="add-btn" type="button" data-bs-toggle="modal"
                                 data-bs-target="#addModal">
-                                <span class="add-btn__text">Insert</span>
+                                <span class="add-btn__text">Add</span>
                                 <span class="add-btn__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
                                         <line y2="19" y1="5" x2="12" x1="12"></line>
                                         <line y2="12" y1="12" x2="19" x1="5"></line>
@@ -128,6 +162,7 @@ include("includes/header.php"); ?>
                                     <th>Blocks ID</th>
                                     <th>Blocks Letter</th>
                                     <th>Department</th>
+                                    <th>Campus</th>
                                     <th>Actions</th>
                                 </thead>
                                 <tbody>
@@ -137,13 +172,14 @@ include("includes/header.php"); ?>
                                             <td><?php echo $block['blocks_id']; ?></td>
                                             <td><?php echo $block['blocks_letter']; ?></td>
                                             <td><?php echo $block['departments_name']; ?></td>
+                                            <td><?php echo $block['campuses_name']; ?></td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <form action="actions/blocks/delete_blocks.php" method="POST" class="deleteForm d-inline">
                                                         <input type="hidden" name="blocks_id" value="<?php echo $block['blocks_id'] ?>">
                                                         <button type="submit" class="delete" style="outline: none;border:none;background:none"><i class="fa-solid fa-trash text-danger"></i></button>
                                                     </form>
-                                                    <a data-bs-toggle="modal" data-bs-target="#updateModal" class="edit" data-id="<?php echo $block['blocks_id'] ?>" data-blocks_letter="<?php echo $block['blocks_letter'] ?>" data-departments_id="<?php echo $block['departments_id'] ?>"><i class="fa-solid fa-pen-to-square text-success"></i></a>
+                                                    <a data-bs-toggle="modal" data-bs-target="#updateModal" class="edit" data-id="<?php echo $block['blocks_id'] ?>" data-blocks_letter="<?php echo $block['blocks_letter'] ?>" data-departments_id="<?php echo $block['departments_id'] ?>" data-campuses_id="<?php echo $block['campuses_id'] ?>"><i class="fa-solid fa-pen-to-square text-success"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -170,9 +206,11 @@ include("includes/header.php"); ?>
             var id = $(this).attr('data-id');
             var blocks_letter = $(this).attr('data-blocks_letter');
             var departments_id = $(this).attr('data-departments_id');
+            var campuses_id = $(this).attr('data-campuses_id');
             $('#update_blocks_id').val(id);
             $('#update_blocks_letter').val(blocks_letter);
             $('#update_departments_id').val(departments_id);
+            $('#update_campuses_id').val(campuses_id);
         });
 
         $(document).on('submit', '#updateForm', function(e) {

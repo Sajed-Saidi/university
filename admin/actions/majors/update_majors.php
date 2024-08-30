@@ -12,15 +12,17 @@ if ($_POST) {
     $credit_price = $_POST['credit_price'];
     $total_credits = $_POST['total_credits'];
     $duration_in_years = $_POST['duration_in_years'];
+    $type = $_POST['type'];
+    $departments_id = $_POST['departments_id'];
 
     $exists = $Majors->majorExistDifferentID($majors_id, $majors_name, $code);
     if ($exists) {
         $response = array(
             'status' => 'error',
-            'message' => 'Major ' . $majors_name . ' Already Exists!'
+            'message' => 'Major or Code Already Exists!'
         );
     } else {
-        $result = $Majors->updateMajor($majors_id, $majors_name, $code, $description, $credit_price, $total_credits, $duration_in_years);
+        $result = $Majors->updateMajor($majors_id, $majors_name, $code, $description, $credit_price, $total_credits, $duration_in_years, $type, $departments_id);
 
         if ($result == 0) {
             $response = array(

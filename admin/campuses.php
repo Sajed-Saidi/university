@@ -57,7 +57,7 @@ include("includes/header.php"); ?>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon2">Location</span>
-                        <input type="text" id="update_location" name="location" class="form-control" placeholder="Enter Location" required aria-label="university" aria-describedby="basic-addon2">
+                        <textarea id="update_location" name="location" rows="5" cols="20" class="form-control" placeholder="Enter Location" required aria-label="university" aria-describedby="basic-addon2"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -59,9 +59,8 @@
                     <i class="align-middle" data-feather="layout"></i>
                     <span class="menu-title">Academic</span>
                 </a>
-                <div class="collapse <?php echo ($page == "majors.php" || $page == "courses.php" || $page == "prerequisites.php" || $page == "major_departments.php") ? 'show' : ''; ?>" id="category-ui-basic-2">
+                <div class="collapse <?php echo ($page == "majors.php" || $page == "courses.php" || $page == "prerequisites.php") ? 'show' : ''; ?>" id="category-ui-basic-2">
                     <ul class="sidebar-nav flex-column sub-menu">
-                        <li class="sidebar-item <?php echo ($page == "major_departments.php" ? "active" : "") ?>"> <a class="sidebar-link" href="major_departments.php">- Major Departments</a></li>
                         <li class="sidebar-item <?php echo ($page == "majors.php" ? "active" : "") ?>"> <a class="sidebar-link" href="majors.php">- Majors</a></li>
                         <li class="sidebar-item <?php echo ($page == "courses.php" ? "active" : "") ?>"> <a class="sidebar-link" href="courses.php">- Courses</a></li>
                         <li class="sidebar-item <?php echo ($page == "prerequisites.php" ? "active" : "") ?>"> <a class="sidebar-link" href="prerequisites.php">- Prerequisites</a></li>
@@ -78,6 +77,18 @@
                     <ul class="sidebar-nav flex-column sub-menu">
                         <li class="sidebar-item <?php echo ($page == "students_applications.php" ? "active" : "") ?>"> <a class="sidebar-link" href="students_applications.php">- Student Applications</a></li>
                         <li class="sidebar-item <?php echo ($page == "doctors_applications.php" ? "active" : "") ?>"> <a class="sidebar-link" href="doctors_applications.php">- Doctor Applications</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link collapsed" data-bs-toggle="collapse" href="#category-ui-basic-4" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="align-middle" data-feather="briefcase"></i>
+                    <span class="menu-title">Library</span>
+                </a>
+                <div class="collapse <?php echo ($page == "books.php") ? 'show' : ''; ?>" id="category-ui-basic-4">
+                    <ul class="sidebar-nav flex-column sub-menu">
+                        <li class="sidebar-item <?php echo ($page == "books.php" ? "active" : "") ?>"> <a class="sidebar-link" href="books.php">- Books</a></li>
                     </ul>
                 </div>
             </li>

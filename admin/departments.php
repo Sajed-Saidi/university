@@ -1,13 +1,9 @@
 <?php
 require_once("../classes/Staff.class.php");
-require_once("../classes/Campuses.class.php");
 require_once("../classes/Departments.class.php");
 
 $Staffs = new Staffs();
 $allStaffs = $Staffs->getAllStaffs();
-
-$Campuses = new Campuses();
-$allCampuses = $Campuses->getAllCampuses();
 
 $Departments = new Departments();
 $allDepartments = $Departments->getAllDepartments();
@@ -48,21 +44,6 @@ include("includes/header.php"); ?>
                             ?>
                                 <option value="<?php echo $head['staffs_id'] ?>">
                                     <?php echo $head['username'] ?>
-                                </option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <!-- Campus ID-->
-                    <div class="input-group mb-3">
-                        <label class="input-group-text" for="campuses_id">Campus</label>
-                        <select class="form-select" name="campuses_id" id="campuses_id">
-                            <?php
-                            foreach ($allCampuses as $campus) {
-                            ?>
-                                <option value="<?php echo $campus['campuses_id'] ?>">
-                                    <?php echo $campus['name'] . " - " . $campus['location'] ?>
                                 </option>
                             <?php
                             }
@@ -117,21 +98,6 @@ include("includes/header.php"); ?>
                             ?>
                         </select>
                     </div>
-                    <!-- Campus ID-->
-                    <div class="input-group mb-3">
-                        <label class="input-group-text" for="update_campuses_id">Campus</label>
-                        <select class="form-select" name="campuses_id" id="update_campuses_id">
-                            <?php
-                            foreach ($allCampuses as $campus) {
-                            ?>
-                                <option value="<?php echo $campus['campuses_id'] ?>">
-                                    <?php echo $campus['name'] . " - " . $campus['location'] ?>
-                                </option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -177,7 +143,6 @@ include("includes/header.php"); ?>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Head name</th>
-                                    <th>Campus Name</th>
                                     <th>Actions</th>
                                 </thead>
                                 <tbody>
@@ -190,14 +155,13 @@ include("includes/header.php"); ?>
                                                 <p class="text-ellipsis"><?php echo $department['description']; ?></p>
                                             </td>
                                             <td><?php echo $department['head_name']; ?></td>
-                                            <td><?php echo $department['campuses_name']; ?></td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <form action="actions/departments/delete_departments.php" method="POST" class="deleteForm d-inline">
                                                         <input type="hidden" name="departments_id" value="<?php echo $department['departments_id'] ?>">
                                                         <button type="submit" class="delete" style="outline: none;border:none;background:none"><i class="fa-solid fa-trash text-danger"></i></button>
                                                     </form>
-                                                    <a data-bs-toggle="modal" data-bs-target="#updateModal" class="edit" data-id="<?php echo $department['departments_id'] ?>" data-departments_name="<?php echo $department['departments_name'] ?>" data-description="<?php echo $department['description'] ?>" data-head_id="<?php echo $department['head_id'] ?>" data-campuses_id="<?php echo $department['campuses_id'] ?>"><i class="fa-solid fa-pen-to-square text-success"></i></a>
+                                                    <a data-bs-toggle="modal" data-bs-target="#updateModal" class="edit" data-id="<?php echo $department['departments_id'] ?>" data-departments_name="<?php echo $department['departments_name'] ?>" data-description="<?php echo $department['description'] ?>" data-head_id="<?php echo $department['head_id'] ?>"><i class="fa-solid fa-pen-to-square text-success"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -225,16 +189,13 @@ include("includes/header.php"); ?>
             var departments_name = $(this).attr('data-departments_name');
             var description = $(this).attr('data-description');
             var head_id = $(this).attr('data-head_id');
-            var campuses_id = $(this).attr('data-campuses_id');
 
-            console.log(id, departments_name, description, head_id, campuses_id);
-
+            // console.log(id, departments_name, description, head_id, campuses_id);
 
             $('#update_departments_id').val(id);
             $('#update_departments_name').val(departments_name);
             $('#update_description').val(description);
             $('#update_head_id').val(head_id);
-            $('#update_campuses_id').val(campuses_id);
         });
 
         $(document).on('submit', '#updateForm', function(e) {

@@ -8,19 +8,18 @@ if ($_POST) {
     $departments_name = $_POST['departments_name'];
     $description = $_POST['description'];
     $head_id = $_POST['head_id'];
-    $campuses_id = $_POST['campuses_id'];
 
     // var_dump($departments_name, $description, $head_id, $campuses_id);
     // exit;
 
-    $departmentResult = $Departments->getDepartment($departments_name, $campuses_id);
+    $departmentResult = $Departments->getDepartment($departments_name);
     if ($departmentResult) {
         $response = array(
             'status' => 'error',
             'message' => $departments_name . ' Already Exists In This Campus!'
         );
     } else {
-        $result = $Departments->insertDepartment($departments_name, $description, $head_id, $campuses_id);
+        $result = $Departments->insertDepartment($departments_name, $description, $head_id);
 
         if ($result) {
             $response = array(

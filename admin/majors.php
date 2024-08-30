@@ -1,9 +1,13 @@
 <?php
-require("../classes/Majors.class.php");
+require_once("../classes/Departments.class.php");
+require_once("../classes/Majors.class.php");
 
 $Majors = new Majors();
 $allMajors = $Majors->getAllMajors();
-// var_dump($allMajors);
+
+$Departments = new Departments();
+$allDepartments = $Departments->getAllDepartments();
+// var_dump($allDepartments);
 // exit;
 
 include("includes/header.php"); ?>
@@ -24,7 +28,7 @@ include("includes/header.php"); ?>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Code</span>
-                        <input type="text" name="code" class="form-control" placeholder="Enter Majors Name" required aria-label="university" aria-describedby="basic-addon1">
+                        <input type="text" name="code" class="form-control" placeholder="Enter Code" required aria-label="university" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon3">Description</span>
@@ -45,6 +49,29 @@ include("includes/header.php"); ?>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Duration in Years</span>
                         <input type="number" min=0 max=15 name="duration_in_years" class="form-control" placeholder="Enter Duration in Years" required aria-label="university" aria-describedby="basic-addon1">
+                    </div>
+                    <!-- Department ID -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="departments_id">Department</label>
+                        <select class="form-select" name="departments_id" id="departments_id">
+                            <?php
+                            foreach ($allDepartments as $department) {
+                            ?>
+                                <option value="<?php echo $department['departments_id'] ?>">
+                                    <?php echo $department['departments_name'] ?>
+                                </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <!-- Type -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="type">Type</label>
+                        <select class="form-select" name="type" id="type">
+                            <option value="bachelor">Bachelor</option>
+                            <option value="master">Master</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -73,7 +100,7 @@ include("includes/header.php"); ?>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Code</span>
-                        <input type="text" name="code" id="update_code" class="form-control" placeholder="Enter Majors Name" required aria-label="university" aria-describedby="basic-addon1">
+                        <input type="text" name="code" id="update_code" class="form-control" placeholder="Enter Code" required aria-label="university" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon3">Description</span>
@@ -95,6 +122,29 @@ include("includes/header.php"); ?>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Duration in Years</span>
                         <input type="number" min=0 id="update_duration" max=15 name="duration_in_years" class="form-control" placeholder="Enter Duration in Years" required aria-label="university" aria-describedby="basic-addon1">
+                    </div>
+                    <!-- Department ID -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="update_departments_id">Department</label>
+                        <select class="form-select" name="departments_id" id="update_departments_id">
+                            <?php
+                            foreach ($allDepartments as $department) {
+                            ?>
+                                <option value="<?php echo $department['departments_id'] ?>">
+                                    <?php echo $department['departments_name'] ?>
+                                </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <!-- Type -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="update_type">Type</label>
+                        <select class="form-select" name="type" id="update_type">
+                            <option value="bachelor">Bachelor</option>
+                            <option value="master">Master</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -145,6 +195,8 @@ include("includes/header.php"); ?>
                                     <th>Credit Price</th>
                                     <th>Total Credit</th>
                                     <th>Duration in Years</th>
+                                    <th>Type</th>
+                                    <th>Department</th>
                                     <th>Actions</th>
                                 </thead>
                                 <tbody>
@@ -158,13 +210,15 @@ include("includes/header.php"); ?>
                                             <td><?php echo $major['credit_price']; ?></td>
                                             <td><?php echo $major['total_credits']; ?></td>
                                             <td><?php echo $major['duration_in_years']; ?></td>
+                                            <td><?php echo $major['type']; ?></td>
+                                            <td><?php echo $major['departments_name']; ?></td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <form action="actions/majors/delete_majors.php" method="POST" class="deleteForm d-inline">
                                                         <input type="hidden" name="majors_id" value="<?php echo $major['majors_id'] ?>">
                                                         <button type="submit" class="delete" style="outline: none;border:none;background:none"><i class="fa-solid fa-trash text-danger"></i></button>
                                                     </form>
-                                                    <a data-bs-toggle="modal" data-bs-target="#updateModal" class="edit" data-id="<?php echo $major['majors_id'] ?>" data-majors_name="<?php echo $major['majors_name'] ?>" data-code="<?php echo $major['code'] ?>" data-description="<?php echo $major['description'] ?>" data-credit_price="<?php echo $major['credit_price'] ?>" data-total_credits="<?php echo $major['total_credits'] ?>" data-duration_in_years="<?php echo $major['duration_in_years'] ?>"><i class="fa-solid fa-pen-to-square text-success"></i></a>
+                                                    <a data-bs-toggle="modal" data-bs-target="#updateModal" class="edit" data-id="<?php echo $major['majors_id'] ?>" data-majors_name="<?php echo $major['majors_name'] ?>" data-code="<?php echo $major['code'] ?>" data-description="<?php echo $major['description'] ?>" data-credit_price="<?php echo $major['credit_price'] ?>" data-total_credits="<?php echo $major['total_credits'] ?>" data-duration_in_years="<?php echo $major['duration_in_years'] ?>" data-type="<?php echo $major['type'] ?>" data-departments_id="<?php echo $major['departments_id'] ?>"><i class="fa-solid fa-pen-to-square text-success"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -195,6 +249,8 @@ include("includes/header.php"); ?>
             var credit_price = $(this).attr('data-credit_price');
             var total_credits = $(this).attr('data-total_credits');
             var duration_in_years = $(this).attr('data-duration_in_years');
+            var type = $(this).attr('data-type');
+            var departments_id = $(this).attr('data-departments_id');
             $('#update_majors_id').val(id);
             $('#update_majors_name').val(majors_name);
             $('#update_code').val(code);
@@ -202,6 +258,8 @@ include("includes/header.php"); ?>
             $('#update_credit_price').val(credit_price);
             $('#update_total_credits').val(total_credits);
             $('#update_duration').val(duration_in_years);
+            $('#update_type').val(type);
+            $('#update_departments_id').val(departments_id);
         });
 
         $(document).on('submit', '#updateForm', function(e) {
