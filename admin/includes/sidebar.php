@@ -59,8 +59,14 @@
                     <i class="align-middle" data-feather="layout"></i>
                     <span class="menu-title">Academic</span>
                 </a>
+<<<<<<< HEAD
                 <div class="collapse <?php echo ($page == "majors.php" || $page == "courses.php" || $page == "prerequisites.php") ? 'show' : ''; ?>" id="category-ui-basic-2">
                     <ul class="sidebar-nav flex-column sub-menu">
+=======
+                <div class="collapse <?php echo ($page == "majors.php" || $page == "courses.php" || $page == "prerequisites.php" || $page == "major_departments.php") ? 'show' : ''; ?>" id="category-ui-basic-2">
+                    <ul class="sidebar-nav flex-column sub-menu">
+                        <li class="sidebar-item <?php echo ($page == "major_departments.php" ? "active" : "") ?>"> <a class="sidebar-link" href="major_departments.php">- Major Departments</a></li>
+>>>>>>> fa465d8cf59b97c3aa984a27c0de29ebbbba3aa0
                         <li class="sidebar-item <?php echo ($page == "majors.php" ? "active" : "") ?>"> <a class="sidebar-link" href="majors.php">- Majors</a></li>
                         <li class="sidebar-item <?php echo ($page == "courses.php" ? "active" : "") ?>"> <a class="sidebar-link" href="courses.php">- Courses</a></li>
                         <li class="sidebar-item <?php echo ($page == "prerequisites.php" ? "active" : "") ?>"> <a class="sidebar-link" href="prerequisites.php">- Prerequisites</a></li>
@@ -80,6 +86,7 @@
                     </ul>
                 </div>
             </li>
+<<<<<<< HEAD
 
             <li class="sidebar-item">
                 <a class="sidebar-link collapsed" data-bs-toggle="collapse" href="#category-ui-basic-4" aria-expanded="false" aria-controls="ui-basic">
@@ -92,6 +99,8 @@
                     </ul>
                 </div>
             </li>
+=======
+>>>>>>> fa465d8cf59b97c3aa984a27c0de29ebbbba3aa0
         </ul>
     </div>
 </nav>

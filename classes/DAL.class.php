@@ -88,7 +88,11 @@ class DAL
         // var_dump($extension);exit;
         $image_ext = strtolower(pathinfo($image, PATHINFO_EXTENSION)); //png
         $img_name = str_replace("." . $image_ext, "", basename($image)); //p1
+<<<<<<< HEAD
         $file_name = uniqid() . time() . '.' . $image_ext;
+=======
+        $file_name = $img_name . time() . '.' . $image_ext;
+>>>>>>> fa465d8cf59b97c3aa984a27c0de29ebbbba3aa0
 
         move_uploaded_file($fileImage['tmp_name'], $path . $file_name);
 

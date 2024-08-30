@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <?php require('common/head.php');
 ?>
 
@@ -8,6 +9,10 @@
   border: 1px solid red;
 }
 
+=======
+<?php require('common/head.php');?>
+<style>
+>>>>>>> fa465d8cf59b97c3aa984a27c0de29ebbbba3aa0
 h2{
     color:#4D869C;
 }
@@ -83,7 +88,10 @@ label {
 }
 
 input, select, textarea {
+<<<<<<< HEAD
   width: 100%;
+=======
+>>>>>>> fa465d8cf59b97c3aa984a27c0de29ebbbba3aa0
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #7AB2B2; /* Teal border for input fields */
@@ -110,7 +118,10 @@ button[type="submit"] {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+<<<<<<< HEAD
     float:right;
+=======
+>>>>>>> fa465d8cf59b97c3aa984a27c0de29ebbbba3aa0
 }
 
 button[type="submit"]:hover {
@@ -189,6 +200,7 @@ button.next-button:focus, button.prev-button:focus {
                 </button>
             </p>
         </div><br>
+<<<<<<< HEAD
    
   <!-- Application Form Section -->
   <div class="applyf container-fluid">
@@ -274,6 +286,86 @@ button.next-button:focus, button.prev-button:focus {
   </div>
   <!-- End Application Form Section -->
 
+=======
+          <!-- Application Form Section -->
+      <div class="applyf container-fluid">
+        <div class="tabs">
+          <button class="tab-button active" onclick="openTab('tab1')">Personal Information</button>
+          <button class="tab-button" onclick="openTab('tab2')">Academic Background</button>
+          <button class="tab-button" onclick="openTab('tab3')">Contact Details</button>
+    
+        </div>
+
+        <div class="tab-content">
+          <div id="tab1" class="tab-panel active">
+            <h2>Personal Information</h2>
+            <form>
+              <label for="name">First Name:</label>
+              <input type="text" id="fname" name="fname" placeholder="Enter your first name" required><br><br>
+              <label for="name">Last Name:</label>
+              <input type="text" id="lname" name="lname" placeholder="Enter your last name" required><br><br>
+              <label for="dob">Date of Birth:</label>
+              <input type="date" id="dob" name="dob" required><br><br>
+              <label for="gender">Gender:</label>
+              <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select><br><br>
+            </form>
+            <button class="next-button" onclick="nextTab()">Next</button>
+      
+          </div>
+          <div id="tab2" class="tab-panel">
+      <h2>Academic Background</h2>
+      <form>
+        <label for="status">Current Academic Status:</label>
+        <select id="status" name="status" required>
+          <option value="highschool">High School Graduate</option>
+          <option value="university">Currently Attending University</option>
+        </select><br><br>
+
+        <div id="highschool-info" class="academic-info">
+          <label for="highschool">High School Name:</label>
+          <input type="text" id="highschool" name="highschool" placeholder="ABC High School" required><br><br>
+          <label for="gpa">Official  Average:</label>
+          <input type="number" id="avg" name="avg" placeholder="Official Exams Average /20" required><br><br>
+          <label for="major">Intended Major:</label>
+          <input type="text" id="major" name="major" placeholder="Computer Science" required><br><br>
+        </div>
+
+        <div id="university-info" class="academic-info" style="display:none;">
+          <label for="university">Current University:</label>
+          <input type="text" id="university" name="university" placeholder="XYZ University" required><br><br>
+          <label for="current-major">Current Major:</label>
+          <input type="text" id="current-major" name="current-major" placeholder="Engineering" required><br><br>
+          <label for="current-gpa">Current GPA:</label>
+          <input type="number" step="0.01" id="current-gpa" name="current-gpa" placeholder="3.75" required><br><br>
+        </div>
+      </form>
+      <button class="prev-button" onclick="prevTab()">Previous</button>
+      <button class="next-button" onclick="nextTab()">Next</button>
+ 
+    </div>
+          <div id="tab3" class="tab-panel">
+            <h2>Contact Details</h2>
+            <form>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="example@example.com" required><br><br>
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1234567890" required><br><br>
+              <label for="address">Address:</label>
+              <input type="text" id="address" name="address" placeholder="123 Main St, City, State, ZIP" required><br><br>
+              <button type="submit">Submit</button>
+            </form>
+          
+            <button class="prev-button" onclick="prevTab()">Previous</button>
+          </div>
+         
+        </div>
+      </div>
+      <!-- End Application Form Section -->
+>>>>>>> fa465d8cf59b97c3aa984a27c0de29ebbbba3aa0
 
   </main><br>
 <?php require('./common/footer.php')
@@ -291,6 +383,7 @@ button.next-button:focus, button.prev-button:focus {
 </html>
 
 <script>
+<<<<<<< HEAD
     document.addEventListener('DOMContentLoaded', () => {
       // Initialize the first tab as active
       openTab('tab1');
@@ -426,3 +519,75 @@ document.getElementById('application-form').addEventListener('submit', function(
 });
 
   </script>
+=======
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize the first tab as active
+    openTab('tab1');
+});
+
+function openTab(tabId) {
+    // Get all tab panels and buttons
+    const tabs = document.querySelectorAll('.tab-panel');
+    const buttons = document.querySelectorAll('.tab-button');
+
+    // Hide all tab panels and remove active class from all buttons
+    tabs.forEach(tab => tab.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Show the selected tab panel and set the corresponding button as active
+    document.getElementById(tabId).classList.add('active');
+    document.querySelector(`.tab-button[onclick="openTab('${tabId}')"]`).classList.add('active');
+}
+
+function nextTab() {
+    const activeTab = document.querySelector('.tab-panel.active');
+    const tabs = Array.from(document.querySelectorAll('.tab-panel'));
+    const currentIndex = tabs.indexOf(activeTab);
+    if (currentIndex < tabs.length - 1) {
+        const nextTabId = tabs[currentIndex + 1].id;
+        openTab(nextTabId);
+    }
+}
+
+function prevTab() {
+    const activeTab = document.querySelector('.tab-panel.active');
+    const tabs = Array.from(document.querySelectorAll('.tab-panel'));
+    const currentIndex = tabs.indexOf(activeTab);
+    if (currentIndex > 0) {
+        const prevTabId = tabs[currentIndex - 1].id;
+        openTab(prevTabId);
+    }
+}
+
+
+</script>
+<script>
+  function openTab(tabId) {
+    var tabs = document.querySelectorAll('.tab-panel');
+    tabs.forEach(function(tab) {
+      tab.classList.remove('active');
+    });
+
+    var buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(function(button) {
+      button.classList.remove('active');
+    });
+
+    document.getElementById(tabId).classList.add('active');
+    document.querySelector('.tab-button[onclick="openTab(\'' + tabId + '\')"]').classList.add('active');
+  }
+
+  document.getElementById('status').addEventListener('change', function() {
+    var highschoolInfo = document.getElementById('highschool-info');
+    var universityInfo = document.getElementById('university-info');
+    
+    if (this.value === 'highschool') {
+      highschoolInfo.style.display = 'block';
+      universityInfo.style.display = 'none';
+    } else if (this.value === 'university') {
+      highschoolInfo.style.display = 'none';
+      universityInfo.style.display = 'block';
+    }
+  });
+</script>
+>>>>>>> fa465d8cf59b97c3aa984a27c0de29ebbbba3aa0

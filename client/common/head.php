@@ -31,7 +31,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa465d8cf59b97c3aa984a27c0de29ebbbba3aa0
   <!-- =======================================================
   * Template Name: Impact
   * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
